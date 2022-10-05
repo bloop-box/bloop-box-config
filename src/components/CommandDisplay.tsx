@@ -48,6 +48,8 @@ const CommandDisplay = ({command, parameters} : Props) : JSX.Element => {
             }
 
             enqueueSnackbar('Failed to write to NFC tag', {variant: 'error'});
+        } finally {
+            setNfcController(null);
         }
     };
 
@@ -68,7 +70,6 @@ const CommandDisplay = ({command, parameters} : Props) : JSX.Element => {
                 <DialogActions>
                     <Button onClick={() => {
                         nfcController?.abort();
-                        setNfcController(null);
                     }}>
                         Cancel
                     </Button>
