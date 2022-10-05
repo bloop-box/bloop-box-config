@@ -1,6 +1,10 @@
 pages:
   stage: deploy
   environment: production
+  cache:
+    key: build-cache
+    paths:
+      - node_modules/
   script:
     - npm i
     - npm run build
