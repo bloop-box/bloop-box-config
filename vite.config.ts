@@ -14,8 +14,7 @@ export default defineConfig({
         rollupOptions: {
             output: {
                 manualChunks: {
-                    'mui': ['@mui/material', '@mui/lab'],
-                    'js-joda': ['@js-joda/core', '@js-joda/timezone', '@js-joda/locale_en-us'],
+                    'mui': ['@mui/material'],
                 },
             },
         },
