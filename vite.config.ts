@@ -1,3 +1,4 @@
+import path from 'path';
 import react from '@vitejs/plugin-react';
 import {visualizer} from 'rollup-plugin-visualizer';
 import {defineConfig} from 'vite';
@@ -5,6 +6,7 @@ import {VitePWA} from 'vite-plugin-pwa';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig({
+    base: process.env.DEPLOY_BASE,
     plugins: [
         react(),
         tsconfigPaths(),
@@ -41,6 +43,7 @@ export default defineConfig({
     },
     build: {
         sourcemap: true,
+        outDir: process.env.OUT_DIR ? path.relative(__dirname, process.env.OUT_DIR) : undefined,
         rollupOptions: {
             output: {
                 manualChunks: {

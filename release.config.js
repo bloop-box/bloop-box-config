@@ -16,10 +16,10 @@ module.exports = {
             '@semantic-release/exec',
             {
                 prepareCmd: [
-                    'ln -s dist bloop-box-config-${nextRelease.version}',
-                    '&&',
+                    'OUT_DIR=dist-release npm run build',
+                    'OUT_DIR=bloop-box-config-${nextRelease.version} DEPLOY_BASE=/bloop-box-config/ npm run build',
                     'zip -9 -r bloop-box-config-${nextRelease.version}.zip bloop-box-config-${nextRelease.version}',
-                ].join(' '),
+                ].join(' && '),
             }
         ],
         [
