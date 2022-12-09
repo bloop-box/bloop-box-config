@@ -1,6 +1,6 @@
 {
    "name": "bloop-box-config",
-   "version": "1.0.0",
+   "version": "1.0.1",
    "description": "Configuration Generator for Bloop Boxes",
    "private": true,
    "devDependencies": {

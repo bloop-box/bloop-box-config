@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/bloop-box/bloop-box-config/compare/v1.0.0...v1.0.1) (2022-12-09)
+
+
+### Bug Fixes
+
+* use proper base URL for github-pages ([cbbbf4b](https://github.com/bloop-box/bloop-box-config/commit/cbbbf4bb92c131547ef3be4a5b69d0adbbf3d633))
+
 # 1.0.0 (2022-12-09)
 
 
