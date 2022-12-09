@@ -10,6 +10,9 @@ jobs:
     name: Release
     runs-on: ubuntu-latest
 
+    outputs:
+      release-exists: ${{ steps.check-files.outputs.files_exists }}
+
     steps:
       - uses: actions/checkout@v3
 
@@ -49,13 +52,21 @@ jobs:
             @semantic-release/exec@6.0
             @semantic-release/git@10.0
 
+      - name: Check file existence
+        id: check-files
+        uses: andstor/file-existence-action@v2
+        with:
+          files: "dist-release"
+
       - name: Upload artifact
+        if: steps.check_files.outputs.files_exists == 'true'
         uses: actions/upload-pages-artifact@v1
         with:
           path: dist-release
 
   deploy:
     needs: release
+    if: ${{ needs.release.outputs.release-exists == 'true' }}
     name: "Deploy"
     runs-on: ubuntu-latest
 
