@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/bloop-box/bloop-box-config/compare/v1.0.1...v1.0.2) (2022-12-09)
+
+
+### Bug Fixes
+
+* switch around DEPLOY_BASE for github-pages release ([990bc5b](https://github.com/bloop-box/bloop-box-config/commit/990bc5b103ef954fe7268b519eab5a748337edaf))
+
 ## [1.0.1](https://github.com/bloop-box/bloop-box-config/compare/v1.0.0...v1.0.1) (2022-12-09)
 
 
