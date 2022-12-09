@@ -7,7 +7,7 @@ import {
     Dialog, DialogActions,
     DialogContent,
     DialogContentText,
-    DialogTitle
+    DialogTitle,
 } from '@mui/material';
 import {useSnackbar} from 'notistack';
 import {useState} from 'react';
@@ -56,7 +56,10 @@ const CommandDisplay = ({command, parameters} : Props) : JSX.Element => {
     return (
         <Card>
             <CardActionArea onClick={handleClick}>
-                <CardHeader title="Command String" subheader="Click to copy"/>
+                <CardHeader
+                    title="Command String"
+                    subheader={ndefReader ? 'Write to NFC tag' : 'Copy to clipboard'}
+                />
                 <CardContent sx={{fontFamily: 'monospace'}}>{result}</CardContent>
             </CardActionArea>
 

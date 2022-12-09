@@ -12,6 +12,7 @@ import {
 } from '@mui/material';
 import {useState} from 'react';
 import CommandDisplay from '@/components/CommandDisplay';
+import InfoButton from '@/components/InfoButton';
 import SetMaxVolumeForm from '@/forms/SetMaxVolumeForm';
 import SetServerCredentialsForm from '@/forms/SetServerCredentialsForm';
 import SetWifiCredentialsForm from '@/forms/SetWifiCredentialsForm';
@@ -31,9 +32,10 @@ const App = () : JSX.Element => {
         <>
             <AppBar position="static">
                 <Toolbar>
-                    <Typography variant="h6" noWrap component="div">
-                        Boop Box Config
+                    <Typography variant="h6" noWrap component="div" sx={{flexGrow: 1}}>
+                        Bloop Box Config
                     </Typography>
+                    <InfoButton color="inherit" size="large"/>
                 </Toolbar>
             </AppBar>
             <Container component="main" sx={{mt: 4, mb: 4}}>

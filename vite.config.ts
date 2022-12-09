@@ -17,9 +17,9 @@ export default defineConfig({
                 'mask-icon.svg',
             ],
             manifest: {
-                name: 'Boop Box Config',
-                short_name: 'BoopBoxConfig',
-                description: 'Configuration Generator for Boop Boxes',
+                name: 'Bloop Box Config',
+                short_name: 'BloopBoxConfig',
+                description: 'Configuration Generator for Bloop Boxes',
                 theme_color: '#1976d2',
                 icons: [
                     {
@@ -36,6 +36,9 @@ export default defineConfig({
             },
         }),
     ],
+    define: {
+        appVersion: JSON.stringify(process.env.npm_package_version),
+    },
     build: {
         sourcemap: true,
         rollupOptions: {
