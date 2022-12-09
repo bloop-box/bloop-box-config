@@ -15,7 +15,11 @@ module.exports = {
         [
             '@semantic-release/exec',
             {
-                prepareCmd: "ln -s dist bloop-box-config-${nextRelease.version} && zip -9 -r box-config-${nextRelease.version}.zip box-config-${nextRelease.version}",
+                prepareCmd: [
+                    'ln -s dist bloop-box-config-${nextRelease.version}',
+                    '&&',
+                    'zip -9 -r bloop-box-config-${nextRelease.version}.zip bloop-box-config-${nextRelease.version}',
+                ].join(' '),
             }
         ],
         [
