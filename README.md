@@ -41,3 +41,7 @@ Instructs the Bloop Box client to accept an additional config tag (needs to be s
 ### Reset Config Tags
 
 Removes all but the current config tag from the Bloop Box client.
+
+### Shut Down
+
+Instruct the Bloop Box client to perform a graceful shutdown of the OS. 

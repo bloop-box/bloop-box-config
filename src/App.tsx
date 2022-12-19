@@ -26,6 +26,7 @@ const App = () : JSX.Element => {
         'v': <SetMaxVolumeForm command="v"/>,
         'u': <CommandDisplay command="u"/>,
         'r': <CommandDisplay command="r"/>,
+        's': <CommandDisplay command="s"/>,
     };
 
     return (
@@ -50,6 +51,7 @@ const App = () : JSX.Element => {
                             <FormControlLabel control={<Radio/>} value="v" label="Set Max Volume"/>
                             <FormControlLabel control={<Radio/>} value="u" label="Add Config Tag"/>
                             <FormControlLabel control={<Radio/>} value="r" label="Reset Config Tags"/>
+                            <FormControlLabel control={<Radio/>} value="s" label="Shut Down"/>
                         </RadioGroup>
                     </FormControl>
 
