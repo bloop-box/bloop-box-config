@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/bloop-box/bloop-box-config/compare/v1.0.2...v1.1.0) (2022-12-19)
+
+
+### Features
+
+* add shutdown command ([c2e8034](https://github.com/bloop-box/bloop-box-config/commit/c2e803484c6a2c0a4be4c05002cfbce97fb6b400))
+
 ## [1.0.2](https://github.com/bloop-box/bloop-box-config/compare/v1.0.1...v1.0.2) (2022-12-09)
 
 
