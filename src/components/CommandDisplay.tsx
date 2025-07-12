@@ -4,23 +4,24 @@ import {
     CardActionArea,
     CardContent,
     CardHeader,
-    Dialog, DialogActions,
+    Dialog,
+    DialogActions,
     DialogContent,
     DialogContentText,
     DialogTitle,
-} from '@mui/material';
-import {useSnackbar} from 'notistack';
-import {useState} from 'react';
+} from "@mui/material";
+import { useSnackbar } from "notistack";
+import { type ReactNode, useState } from "react";
 
 type Props = {
-    command : string;
-    parameters ?: unknown[];
+    command: string;
+    parameters?: unknown[];
 };
 
-const ndefReader = 'NDEFReader' in window ? new NDEFReader() : null;
+const ndefReader = "NDEFReader" in window ? new NDEFReader() : null;
 
-const CommandDisplay = ({command, parameters} : Props) : JSX.Element => {
-    const {enqueueSnackbar} = useSnackbar();
+const CommandDisplay = ({ command, parameters }: Props): ReactNode => {
+    const { enqueueSnackbar } = useSnackbar();
     const [nfcController, setNfcController] = useState<AbortController | null>(null);
 
     let result = command;
@@ -32,7 +33,7 @@ const CommandDisplay = ({command, parameters} : Props) : JSX.Element => {
     const handleClick = async () => {
         if (!ndefReader) {
             await navigator.clipboard.writeText(result);
-            enqueueSnackbar('Copied to clipboard', {variant: 'success'});
+            enqueueSnackbar("Copied to clipboard", { variant: "success" });
             return;
         }
 
@@ -40,14 +41,14 @@ const CommandDisplay = ({command, parameters} : Props) : JSX.Element => {
         setNfcController(abortController);
 
         try {
-            await ndefReader.write(result, {signal: abortController.signal});
-            enqueueSnackbar('Written to NFC tag', {variant: 'success'});
+            await ndefReader.write(result, { signal: abortController.signal });
+            enqueueSnackbar("Written to NFC tag", { variant: "success" });
         } catch (error) {
-            if (error instanceof Error && error.name === 'AbortError') {
+            if (error instanceof Error && error.name === "AbortError") {
                 return;
             }
 
-            enqueueSnackbar('Failed to write to NFC tag', {variant: 'error'});
+            enqueueSnackbar("Failed to write to NFC tag", { variant: "error" });
         } finally {
             setNfcController(null);
         }
@@ -58,9 +59,9 @@ const CommandDisplay = ({command, parameters} : Props) : JSX.Element => {
             <CardActionArea onClick={handleClick}>
                 <CardHeader
                     title="Command String"
-                    subheader={ndefReader ? 'Write to NFC tag' : 'Copy to clipboard'}
+                    subheader={ndefReader ? "Write to NFC tag" : "Copy to clipboard"}
                 />
-                <CardContent sx={{fontFamily: 'monospace'}}>{result}</CardContent>
+                <CardContent sx={{ fontFamily: "monospace" }}>{result}</CardContent>
             </CardActionArea>
 
             <Dialog open={nfcController !== null} maxWidth="sm" fullWidth>
@@ -71,9 +72,11 @@ const CommandDisplay = ({command, parameters} : Props) : JSX.Element => {
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={() => {
-                        nfcController?.abort();
-                    }}>
+                    <Button
+                        onClick={() => {
+                            nfcController?.abort();
+                        }}
+                    >
                         Cancel
                     </Button>
                 </DialogActions>

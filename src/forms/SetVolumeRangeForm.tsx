@@ -6,8 +6,8 @@ type Props = {
     command: string;
 };
 
-const SetMaxVolumeForm = ({ command }: Props): ReactNode => {
-    const [volume, setVolume] = useState(100);
+const SetVolumeRangeForm = ({ command }: Props): ReactNode => {
+    const [volume, setVolume] = useState([0, 100]);
 
     return (
         <Stack spacing={2}>
@@ -19,13 +19,13 @@ const SetMaxVolumeForm = ({ command }: Props): ReactNode => {
                 marks
                 valueLabelDisplay="auto"
                 onChange={(_event, value) => {
-                    setVolume(value as number);
+                    setVolume(value as [number, number]);
                 }}
             />
 
-            <CommandDisplay command={command} parameters={[volume / 100]} />
+            <CommandDisplay command={command} parameters={[volume[0] / 100, volume[1] / 100]} />
         </Stack>
     );
 };
 
-export default SetMaxVolumeForm;
+export default SetVolumeRangeForm;

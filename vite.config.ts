@@ -1,38 +1,32 @@
-import path from 'path';
-import react from '@vitejs/plugin-react';
-import {visualizer} from 'rollup-plugin-visualizer';
-import {defineConfig} from 'vite';
-import {VitePWA} from 'vite-plugin-pwa';
-import tsconfigPaths from 'vite-tsconfig-paths';
+import * as path from "node:path";
+import react from "@vitejs/plugin-react-swc";
+import { defineConfig } from "vite";
+import { VitePWA } from "vite-plugin-pwa";
+import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
     base: process.env.DEPLOY_BASE,
     plugins: [
         react(),
         tsconfigPaths(),
-        visualizer(),
         VitePWA({
-            registerType: 'autoUpdate',
-            includeAssets: [
-                'favicon.ico',
-                'icon-180.png',
-                'mask-icon.svg',
-            ],
+            registerType: "autoUpdate",
+            includeAssets: ["favicon.ico", "icon-180.png", "mask-icon.svg"],
             manifest: {
-                name: 'Bloop Box Config',
-                short_name: 'BloopBoxConfig',
-                description: 'Configuration Generator for Bloop Boxes',
-                theme_color: '#1976d2',
+                name: "Bloop Box Config",
+                short_name: "BloopBoxConfig",
+                description: "Configuration Generator for Bloop Boxes",
+                theme_color: "#1976d2",
                 icons: [
                     {
-                        src: '/icon-192.png',
-                        sized: '192x192',
-                        type: 'image/png',
+                        src: "/icon-192.png",
+                        sizes: "192x192",
+                        type: "image/png",
                     },
                     {
-                        src: '/icon-512.png',
-                        sized: '512x512',
-                        type: 'image/png',
+                        src: "/icon-512.png",
+                        sizes: "512x512",
+                        type: "image/png",
                     },
                 ],
             },
@@ -47,7 +41,7 @@ export default defineConfig({
         rollupOptions: {
             output: {
                 manualChunks: {
-                    'mui': ['@mui/material'],
+                    mui: ["@mui/material"],
                 },
             },
         },

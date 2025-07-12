@@ -30,9 +30,9 @@ Tells the Bloop Box client to reconfigure the Raspberry WiFi to a new SSID and p
 
 Reconfigures the Bloop Server address and credentials.
 
-### Set Max Volume
+### Set Volume Range
 
-Sets the maximum volume (in percent) the Bloop Box client can be set to via the volume buttons.
+Sets the minimum and maximum volume (in percent) the Bloop Box client can be set to via the volume buttons.
 
 ### Add Config Tag
 

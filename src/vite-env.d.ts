@@ -1,1 +1,3 @@
-declare const appVersion : string;
+/// <reference types="vite/client" />
+
+declare const appVersion: string;
