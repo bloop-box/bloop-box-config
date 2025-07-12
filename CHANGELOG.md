@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/bloop-box/bloop-box-config/compare/v1.1.0...v1.2.0) (2025-07-12)
+
+
+### Features
+
+* add support for bloop box v5 ([dc8d513](https://github.com/bloop-box/bloop-box-config/commit/dc8d5135847377d9e4591bf94899c273294c4dca))
+
 # [1.1.0](https://github.com/bloop-box/bloop-box-config/compare/v1.0.2...v1.1.0) (2022-12-19)
 
 
